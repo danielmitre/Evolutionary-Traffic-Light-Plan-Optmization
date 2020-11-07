@@ -1,0 +1,92 @@
+<additionals>
+    <tlLogic id="1" type="static" programID="{id}" offset="{O_1}">
+        <phase duration="{NS1_1}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_1}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_1}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_1}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="2" type="static" programID="{id}" offset="{O_2}">
+        <phase duration="{NS1_2}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_2}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_2}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_2}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="3" type="static" programID="{id}" offset="{O_3}">
+        <phase duration="{NS1_3}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_3}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_3}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_3}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="4" type="static" programID="{id}" offset="{O_4}">
+        <phase duration="{NS1_4}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_4}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_4}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_4}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="5" type="static" programID="{id}" offset="{O_5}">
+        <phase duration="{NS1_5}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_5}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_5}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_5}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="6" type="static" programID="{id}" offset="{O_6}">
+        <phase duration="{NS1_6}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_6}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_6}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_6}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="7" type="static" programID="{id}" offset="{O_7}">
+        <phase duration="{NS1_7}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_7}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_7}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_7}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="8" type="static" programID="{id}" offset="{O_8}">
+        <phase duration="{NS1_8}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_8}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_8}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_8}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+    <tlLogic id="9" type="static" programID="{id}" offset="{O_9}">
+        <phase duration="{NS1_9}" state="GGGgGrrrGGGgGrrr"/>
+        <phase duration="4" state="GyygGrrrGyygGrrr"/>
+        <phase duration="{NS2_9}" state="GrrGGrrrGrrGGrrr"/>
+        <phase duration="4" state="GrryGrrrGrryGrrr"/>
+        <phase duration="{WE1_9}" state="GrrrGGGgGrrrGGGg"/>
+        <phase duration="4" state="GrrrGyygGrrrGyyg"/>
+        <phase duration="{WE2_9}" state="GrrrGrrGGrrrGrrG"/>
+        <phase duration="4" state="GrrrGrryGrrrGrry"/>
+    </tlLogic>
+</additionals>

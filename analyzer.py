@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 import pandas as pd
+import os
 import xmltodict
 from typing import Iterable, Callable
 
@@ -23,12 +24,17 @@ def normal_delay(tripinfos: dict) -> float:
 
 
 def max_normal_delay(tripinfos: dict) -> float:
-    normal_delay = 0.0
+    total_delay = {}
+    count_trips = {}
     for trip_info in tripinfos:
+        route = trip_info['@departLane'] + trip_info['@arrivalLane']
         waiting = float(trip_info['@waitingTime'])
         length = float(trip_info['@routeLength'])
-        normal_delay = max(normal_delay, waiting / length)
-    return normal_delay
+        total_delay[route] = (waiting / length) + total_delay.get(route, 0.0)
+        count_trips[route] = 1.0 + count_trips.get(route, 0.0)
+    for route in total_delay.keys():
+        total_delay[route] /= count_trips[route]
+    return max(total_delay.values())
 
 
 def parse_xml(filename: str) -> dict:
@@ -85,6 +91,8 @@ def metrics_to_csv(directory: str, generations: int, fitness: str, run: str):
 
     df['fitness'] = fitness
     df['run'] = str(run)
+
+    os.makedirs(os.path.dirname('summary/{}'.format(directory)), exist_ok=True)
     df.to_csv('summary/{}.csv'.format(directory), index=False)
 
     tripinfos = extract_tripinfos(
@@ -96,13 +104,18 @@ def metrics_to_csv(directory: str, generations: int, fitness: str, run: str):
     detail['normalWaiting'] = detail['waitingTime'] / detail['routeLength']
     detail['fitness'] = fitness
     detail['run'] = str(run)
+
+    os.makedirs(os.path.dirname('trips/{}'.format(directory)), exist_ok=True)
     detail.to_csv('trips/{}.csv'.format(directory), index=False)
 
 
 if __name__ == '__main__':
-    metrics_to_csv('delay_train2', 50, 'delay', '1')
-    metrics_to_csv('delay_train3', 50, 'delay', '2')
-    metrics_to_csv('delay_train4', 50, 'delay', '3')
-    metrics_to_csv('normal_delay_train2', 50, 'normal_delay', '1')
-    metrics_to_csv('normal_delay_train3', 50, 'normal_delay', '2')
-    metrics_to_csv('normal_delay_train4', 50, 'normal_delay', '3')
+    metrics_to_csv('train/delay/delay_train2', 50, 'delay', '1')
+    metrics_to_csv('train/delay/delay_train3', 50, 'delay', '2')
+    metrics_to_csv('train/delay/delay_train4', 50, 'delay', '3')
+    metrics_to_csv('train/normal_delay/normal_delay_train2',
+                   50, 'normal_delay', '1')
+    metrics_to_csv('train/normal_delay/normal_delay_train3',
+                   50, 'normal_delay', '2')
+    metrics_to_csv('train/normal_delay/normal_delay_train4',
+                   50, 'normal_delay', '3')

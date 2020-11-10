@@ -11,7 +11,7 @@ def delay(tripinfos: dict) -> float:
     for trip_info in tripinfos:
         waiting = float(trip_info['@waitingTime'])
         delay += waiting
-    return delay
+    return delay / len(tripinfos)
 
 
 def normal_delay(tripinfos: dict) -> float:
@@ -71,7 +71,7 @@ def show_stats(population, hof):
     print("\tStd %s" % std)
 
 
-def metrics_to_csv(directory: str, generations: int, fitness: str, run: str):
+def metrics_to_csv(directory: str, generations: int, fitness: str, legible_name: str, run: int):
     print('computing {}...'.format(directory))
     df = pd.DataFrame()
     metric_names = ['delay', 'normal_delay', 'max_normal_delay']
@@ -89,11 +89,11 @@ def metrics_to_csv(directory: str, generations: int, fitness: str, run: str):
         df = pd.concat([df, current], copy=False)
         idx += 1
 
-    df['fitness'] = fitness
-    df['run'] = str(run)
+    df['fitness'] = legible_name
+    df['run'] = run
 
-    os.makedirs(os.path.dirname('summary/{}'.format(directory)), exist_ok=True)
-    df.to_csv('summary/{}.csv'.format(directory), index=False)
+    os.makedirs(os.path.dirname('summary/'), exist_ok=True)
+    df.to_csv('summary/{}-{:02d}.csv'.format(fitness, run), index=False)
 
     tripinfos = extract_tripinfos(
         '{}/gen_{:03d}/00.tripinfo.xml'.format(directory, generations))
@@ -102,20 +102,18 @@ def metrics_to_csv(directory: str, generations: int, fitness: str, run: str):
     detail['waitingTime'] = [float(trip['@waitingTime']) for trip in tripinfos]
     detail['routeLength'] = [float(trip['@routeLength']) for trip in tripinfos]
     detail['normalWaiting'] = detail['waitingTime'] / detail['routeLength']
-    detail['fitness'] = fitness
-    detail['run'] = str(run)
+    detail['fitness'] = legible_name
+    detail['run'] = run
 
-    os.makedirs(os.path.dirname('trips/{}'.format(directory)), exist_ok=True)
-    detail.to_csv('trips/{}.csv'.format(directory), index=False)
+    os.makedirs(os.path.dirname('trips/'), exist_ok=True)
+    detail.to_csv('trips/{}-{:02d}.csv'.format(fitness, run), index=False)
 
 
 if __name__ == '__main__':
-    metrics_to_csv('train/delay/delay_train2', 50, 'delay', '1')
-    metrics_to_csv('train/delay/delay_train3', 50, 'delay', '2')
-    metrics_to_csv('train/delay/delay_train4', 50, 'delay', '3')
-    metrics_to_csv('train/normal_delay/normal_delay_train2',
-                   50, 'normal_delay', '1')
-    metrics_to_csv('train/normal_delay/normal_delay_train3',
-                   50, 'normal_delay', '2')
-    metrics_to_csv('train/normal_delay/normal_delay_train4',
-                   50, 'normal_delay', '3')
+    for i in range(2, 11):
+        metrics_to_csv('train/delay/delay_train%d' %
+                       i, 50, 'delay', 'atraso médio', i)
+        metrics_to_csv('train/normal_delay/normal_delay_train%d' %
+                       i, 50, 'normal_delay', 'atraso de malha padronizado', i)
+        metrics_to_csv('train/max_normal_delay/max_normal_delay_train%d' %
+                       i, 50, 'max_normal_delay', 'pior atraso de rota padronizado', i)
